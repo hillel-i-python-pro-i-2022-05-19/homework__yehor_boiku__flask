@@ -19,22 +19,27 @@ def requirements():
         return "<p>".join(song_1)
 
 
+@app.route('/generate-users')
+def default_value():
+    return "<p>".join(fake_name_and_email(100))
+
+
 @app.route('/generate-users/<int:number>')
 def create_name_and_email(number):
-    return fake_name_and_email(number)
+    return "<p>".join(fake_name_and_email(number))
 
 
 @app.route('/space')
 def astronaut():
-    number_of_astronauts = requests.get('http://api.open-notify.org/astros.json')
-    return f'Number of astronauts is {str(number_of_astronauts.json()["number"])}'
+    file_about_astronauts = requests.get('http://api.open-notify.org/astros.json')
+    return f'Number of astronauts is {str(file_about_astronauts.json()["number"])}'
 
 
 @app.route('/mean')
 def average_height_and_weight():
     data = pd.read_csv('people_data.csv')
-    average_height_in_cm = round(((data[' "Height(Inches)"'].mean()) * 2.54), 2)
-    average_weight_in_kg = round(((data[' "Weight(Pounds)"'].mean()) / 2.205), 2)
+    average_height_in_cm: int = round(((data[' "Height(Inches)"'].mean()) * 2.54), 2)
+    average_weight_in_kg: int = round(((data[' "Weight(Pounds)"'].mean()) / 2.205), 2)
     return f"<p>Average height: {average_height_in_cm} cm.</p> <p>Average weight: {average_weight_in_kg} kg.</p>"
 
 

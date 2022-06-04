@@ -1,0 +1,11 @@
+# Core
+Flask==2.1.2
+
+# Create fake people in @app.route('/generate-users/<int:number>')
+Faker==13.12.0
+
+# Allows to send HTTP requests in @app.route('/space')
+requests==2.27.1
+
+# Reading csv file in @app.route('/mean')
+pandas==1.4.2
