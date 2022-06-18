@@ -1,8 +1,8 @@
 # Core
 Flask==2.1.2
 
-# Create fake people in @app.route('/generate-users/<int:number>')
-Faker==13.12.0
+# Create fake people
+Faker==13.12.1
 
 # Allows to send HTTP requests in @app.route('/space')
 requests==2.27.1
