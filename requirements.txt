@@ -2,10 +2,14 @@
 Flask==2.1.2
 
 # Create fake people
-Faker==13.12.1
+Faker==13.13.0
 
 # Allows to send HTTP requests in @app.route('/space')
-requests==2.27.1
+requests==2.28.0
 
 # Reading csv file in @app.route('/mean')
 pandas==1.4.2
+
+webargs~=8.1.0
+
+ulid-py==1.1.0
