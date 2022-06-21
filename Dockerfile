@@ -1,12 +1,10 @@
 FROM python:3.10
 
-ARG WORKDIR=/wd
+WORKDIR /app
 
 RUN apt update && apt upgrade -y
 
-WORKDIR ${WORKDIR}
-
-COPY requirements.txt ${WORKDIR}/requirements.txt
+COPY requirements.txt requirements.txt
 
 RUN pip install --requirement requirements.txt
 
