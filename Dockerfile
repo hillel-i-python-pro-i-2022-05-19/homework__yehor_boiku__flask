@@ -11,6 +11,6 @@ COPY requirements.txt requirements.txt
 RUN pip install --requirement requirements.txt
 
 COPY app.py app.py
-COPY app_settings app_settings
+COPY application application
 
 ENTRYPOINT ["python", "-m", "flask", "run", "--host=0.0.0.0"]

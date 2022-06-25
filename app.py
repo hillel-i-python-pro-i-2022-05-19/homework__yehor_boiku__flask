@@ -5,8 +5,8 @@ import pandas as pd
 from webargs import fields
 from webargs.flaskparser import use_args
 
-from app_settings import create_fake_users as fake_name_and_email
-from app_settings.settings import DB_PATH
+from application import create_fake_users as fake_name_and_email
+from application.settings import DB_PATH
 
 app = Flask(__name__)
 
@@ -74,7 +74,7 @@ def delete__phones(phoneID):
 #######################################################################################################################
 @app.route('/requirements')
 def requirements():
-    with open('app_settings/anacondaz.txt', 'r') as file:
+    with open('application/anacondaz.txt', 'r') as file:
         song = str(file.read())
         song_1 = song.split('\n')
         return "<p>".join(song_1)
@@ -98,7 +98,7 @@ def astronaut():
 
 @app.route('/mean')
 def average_height_and_weight():
-    data = pd.read_csv('app_settings/people_data.csv')
+    data = pd.read_csv('application/people_data.csv')
     average_height_in_cm: int = round(((data[' "Height(Inches)"'].mean()) * 2.54), 2)
     average_weight_in_kg: int = round(((data[' "Weight(Pounds)"'].mean()) / 2.205), 2)
     return f"<p>Average height: {average_height_in_cm} cm.</p> <p>Average weight: {average_weight_in_kg} kg.</p>"

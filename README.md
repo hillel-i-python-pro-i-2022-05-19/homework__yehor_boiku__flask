@@ -15,7 +15,7 @@ sudo snap install docker
 
 sudo apt install docker-compose
 ```
-## Run with concole
+## Run with console
 ```bash
 make d-run
 ```
